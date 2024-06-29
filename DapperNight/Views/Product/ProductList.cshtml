@@ -1,0 +1,38 @@
+﻿@model List<DapperNight.Dtos.ProductDtos.ResultProductDto>
+@{
+    ViewData["Title"] = "Ürünler";
+}
+
+<h3>Ürün Listesi</h3>
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <br />
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Ürün Adı</th>
+            <th>Kategori</th>
+            <th>Stok</th>
+            <th>Fiyat</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.ProductName</td>
+                <td>@item.CategoryName</td>
+                <td>@item.Stock</td>
+                <td>@item.Price</td>
+                <td><a href="/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Product/UpdateProduct/@item.ProductId" class="btn btn-primary">Güncelle</a></td>
+            </tr>
+        }
+
+    </table>
+    <a href="/Product/CreateProduct/" class="btn btn-primary">Yeni Ürün</a>
+
+</div>
+

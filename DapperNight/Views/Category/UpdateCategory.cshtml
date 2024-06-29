@@ -1,0 +1,20 @@
+﻿@using DapperNight.Dtos.CategoryDtos
+@model GetByIdCategoryDto
+@{
+    ViewData["Title"] = "UpdateCategory";
+}
+
+<h3>Kategori Güncelle</h3>
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <br />
+    <br />
+    <form method="post">
+        @Html.HiddenFor(x=>x.CategoryId)
+        <label>Kategori Adı</label>
+        <input type="text" asp-for="CategoryName" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Güncelle</button>
+
+    </form>
+</div>

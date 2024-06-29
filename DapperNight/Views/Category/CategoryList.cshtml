@@ -1,0 +1,31 @@
+﻿@using DapperNight.Dtos.CategoryDtos
+@model List<ResultCategoryDto>
+@{
+    ViewData["Title"] = "Kategoriler";
+}
+
+<h3>Kategori Listesi</h3>
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <br />
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Kategori Adı</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryId</td>
+                <td>@item.CategoryName</td>
+                <td><a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-primary">Güncelle</a></td>
+            </tr>
+        }    
+
+    </table>
+    <a href="/Category/CreateCategory/" class="btn btn-primary">Yeni Kategori</a>
+</div>
